@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Site.Models.News>
+
+@{
+    ViewData["Title"] = "SearchNews";
+}
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/images" asp-append-version="true" />
+</head>
+@if (User.IsInRole("User"))
+{
+@foreach (var item in Model) {
+   @* <article>
+      <h4>Just in</h4>
+           <div>
+                <h2>
+                  <td>
+                    @Html.DisplayFor(modelItem => item.NewsTitle)
+                  </td>
+                </h2>
+                        <p>
+                            <td>
+                                 @Html.DisplayFor(modelItem => item.Content)
+                            </td>
+                        </p>
+           </div>
+           <img src = "images/main-right.jpg">
+    </article>    
+    <tr>
+        <form action="NewsPage">
+                <input type="hidden" value="@item.NewsID" name="id" />
+				
+                <input type="submit" value="Read more" />
+		</form>
+     </tr>*@
+     <div class="card w-75" style="padding: 10px; margin: 10px">
+      <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.NewsTitle)</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Author.AuthorFirstname) @Html.DisplayFor(modelItem => item.Author.AuthorLastname) @Html.DisplayFor(modelItem => item.Newspaper.NewspaperName)</h6>
+       
+        <p class="card-text">@Html.DisplayFor(modelItem => item.NewsCreated)</p>
+        @*<a class="card-link"><a asp-action="Details" asp-route-id="@item.NewsID">View</a></a>*@
+       <form action="NewsPage">
+                <input type="hidden" value="@item.NewsID" name="id" />
+				
+                <input type="submit" value="Read more" />
+		</form>
+      </div>
+    </div>
+  }
+}

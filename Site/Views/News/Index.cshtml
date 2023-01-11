@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Site.Models.News>
+
+@{
+    ViewData["Title"] = "STIRILE TALE";
+}
+
+<h1>STIRILE TALE</h1>
+@if (User.IsInRole("Admin"))
+{
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.URL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NewsCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Newspaper)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewsTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.URL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NewsCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author.AuthorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Newspaper.NewspaperID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NewsID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NewsID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NewsID">Delete</a>
+            </td>
+        </tr>
+}  
+    </tbody>
+    </table>
+}
+@if (User.IsInRole("User"))
+{
+@foreach (var item in Model) {
+    @*<article>
+      <h4>Just in</h4>
+           <div>
+                <h2>
+                  <td>
+                    @Html.DisplayFor(modelItem => item.NewsTitle)
+                  </td>
+                </h2>
+                        <p>
+                            <td>
+                                 @Html.DisplayFor(modelItem => item.Content)
+                            </td>
+                        </p>
+           </div>
+           <img src = "images/main-right.jpg">
+    </article>    *@
+    @*<div class="card w-75" style="padding: 10px; margin: 10px">
+      <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => item.NewsTitle)</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Author.AuthorFirstname) @Html.DisplayFor(modelItem => item.Author.AuthorLastname)</h6>
+        <p class="card-text">@Html.DisplayFor(modelItem => item.Content)</p>
+        <a class="card-link"><a asp-action="Details" asp-route-id="@item.NewsID">View</a></a>
+       <form action="NewsPage">
+                <input type="hidden" value="@item.NewsID" name="id" />
+				
+                <input type="submit" value="Read more" />
+		</form>
+      </div>
+    </div>*@
+  }
+}

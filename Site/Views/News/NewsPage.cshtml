@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Site.Models.News>
+
+@{
+    ViewData["Title"] = "NewsPage";
+}
+
+<head>
+	<link rel="stylesheet" href="~/css/newspage.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @*<link rel="stylesheet" href="~/images" asp-append-version="true" />*@
+
+ <style>
+.diagonal-bg {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*Pen Styles*/
+
+body {
+    background: #c5c0b7;
+    color: #222;
+    height: 100%;
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.25;
+    text-transform: uppercase;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 2em;
+}
+
+main {
+    width: 70%;
+    margin: 5em auto;
+
+   /* media(min-width: 400px) {
+        width: 65%;
+    }
+
+    media(min-width: 600px) {
+        width: 50%;
+    }*/
+
+    h1{
+        text-align: center;
+      }
+}
+    
+    </style>
+</head>
+
+<body>
+    <main>
+@foreach (var item in Model) {
+      <h1>
+        News: @Html.DisplayFor(modelItem => item.NewsTitle)
+      </h1> 
+      <div>   
+        <h2>
+         Author:@Html.DisplayFor(modelItem => item.Author.AuthorFirstname)
+            @Html.DisplayFor(modelItem => item.Author.AuthorLastname)
+        </h2>
+        <h3>Newspaper:@Html.DisplayFor(modelItem => item.Newspaper.NewspaperName)</h3>
+      </div> 
+
+       <div>
+         <p>
+            Content:@Html.DisplayFor(modelItem => item.Content)
+        </p>
+         @*<img class="d-block w-100" src="@Html.DisplayFor(modelItem => item.URL)" >*@
+       </div>
+}     
+    <script>
+     $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        $(".diagonal-bg svg line").attr("stroke-width", ((30 + scroll / 10) + "%"));
+        //30 is the starting width
+        //alter the amount of growth by changing scroll/x
+     });
+    </script>
+    </main>
+    <div class="diagonal-bg">
+		<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><line x1='100%' y1='0' x2='1' y2='100%' stroke='#FF4B3B' stroke-width='30%'/></svg>
+	</div>
+</body>

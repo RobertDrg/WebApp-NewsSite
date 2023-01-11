@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Site.Models.News>
+
+namespace Site.Views.News
+{
+    public class SearchNews
+    {
+    }
+}

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+    <html class="no-js" lang="en">
+        <head>
+            <title>ALLSPORTS</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+            <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+            <link rel="stylesheet" href="~/js/site.js" asp-append-version="true" />
+            <link rel="stylesheet" href="~/images" asp-append-version="true" />
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+            <script src="https://kit.fontawesome.com/09ddca22c5.js" crossorigin="anonymous"></script>	
+        </head>
+        <body>
+            <header>
+                @*<div class="navigation-container">
+                    <div class="top-head">
+                        <div class="web-name">
+                            <h1>ALLSPORTS</h1>
+                        </div>
+
+                        <div class="ham-btn">
+                            <span>
+                                <i class="fas fa-bars"></i>
+                            </span>
+                        </div>
+
+                        <div class="times-btn">
+                            <span>
+                                <i class="fas fa-times"></i>
+                            </span>
+                        </div>
+                    </div>   
+                    
+                    <div class="nav-bar" id="nav-bar">
+                        <nav>
+                            <ul>
+                                <li><a href="Home">HOME</a></li>
+                                <li><a href ="liga1"> LIGA 1</a></li>
+                                <li><a href="#"> UCL</a></li>
+                                <li><a href="#">TENIS</a></li>
+                                <li><a href="#">LA LIGA</a></li>
+                                <li><a href="#">FORMULA 1</a></li>
+                                <li><a href="#">GALLERY</a></li>
+                            </ul>
+                        </nav>
+                    </div>*@
+
+             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-primary box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ALLSPORTS</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                             <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li>
+                          <div class="nav-right">
+                           <div class="search-box">
+                            <form asp-controller="News" asp-action="SearchNews" method="get">
+                                <p>
+	                            @*<img src="images/search.png">*@
+                                    News: <input type="text" name="NewsTitle" />
+                                    <input type="submit" value="Cauta stirile" />
+                                </p>
+                            </form>
+                           </div>
+                          </div>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="News" asp-action="SearchNewsByCategory">LIGA1</a>
+                        </li>*@
+                        </ul>
+                        <partial name="_LoginPartial" />
+                    </div>
+                </div>
+             </nav>
+                    @*<div class="nav-right">
+                    <div class="search-box">
+                        <form method="GET" action="/News/Index/SearchString?=search">
+                            <img src="images/search.png">
+                            <input class="search-box" type="text" name="SearchString" <input type="submit" value="@ViewBag.SearchString" placeholder="Cauta noile stiri"/>
+		                    <button class="search-button" type="submit">
+                                    <i class="fa fa-search"></i>
+                            </button>*@
+                       @* </form> *@
+                   @*</div>
+                   </div>*@
+
+                    <div class = "social-icons">
+                        <ul>
+                            <li><a href= "#"><i class = "fab fa-facebook"></i></a></li>
+                            <li><a href= "#"><i class = "fab fa-twitter"></i></a></li>
+                            <li><a href= "#"><i class = "fab fa-instagram"></i></a></li>
+                            <li><a href= "#"><i class = "fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+            </header>
+         
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <div class="footer bg-primary ">
+         <a href="tos.html">Terms of service| </a>
+         <a href="privacy.html">Privacy Policy| </a>
+         <a href="faq.html">FAQs| </a>
+         <a href="contact.html">Contact/Info</a>
+    </div>
+        
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>@ViewData["ALLSPORTS"] - ALLSPORTS</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+   @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+   @* <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+
+</head>
+            
+            @*<div class="col-md-4">
+                <div class="search-container">
+                
+                    <form method="GET" action="/News/Index/1">
+                        <input class="search-box" type="text" name="search" value="@ViewBag.SearchString" placeholder="Cauta noile stiri">
+                        <button class="search-button" type="submit">
+                                <i class="fa fa-search"></i>
+                        </button>
+                        <br/>
+                   
+                    </form>
+                 </div>
+            </div>*@
+
+    <div class="content">
+        <main>
+        <section class = "main-container-left">
+                    <h2>Top Stories</h2>
+                    <div class = "container-top-left">
+                        <article>
+                            <img src = "~/images/top-left.jpg">
+    
+                            <div>
+                                <h3>PSG ii fura un jucator Barcelonei! Parizienii au ajuns la un acord cu preferatul lui Xavi</h3>
+    
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis ea sint, nisi rem earum fugit? Facere veritatis sapiente eveniet quibusdam.</p>
+    
+                                <a href = "#">Citeste mai mult <span>>></span></a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class = "main-container-right">
+                <h2>Latest Stories</h2>
+                
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h2>Juventus - Villarreal 0-3. "Submarinul galben" a dat 3 goluri în 14 minute si s-a calificat in sferturi</h2>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                        <a href = "#">Citeste mai mult <span>>></span></a>
+                    </div>
+                    <img src = "images/main-right.jpg">
+                </article>
+
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h2>Trei dintr-o lovitura! Barcelona a mutat pe piata transferurilor. ”Clubul are semnaturile asigurate”</h2>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                        <a href = "#">Citeste mai mult <span>>></span></a>
+                    </div>
+                    <img src = "images/main-right-2.jpg">
+                </article>
+
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h2>Ce a declarat Emma Raducanu despre Simona Halep intr-o revista americana</h2>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                        <a href = "#">Citeste mai mult <span>>></span></a>
+                    </div>
+                    <img src = "images/main-right-3.jpg">
+                </article>
+                
+                <article>
+                    <h4>just in </h4>
+                    <div>
+                        <h2>Lille - Chelsea 1-2. Londonezii intorc scorul si se califica in sferturile de finala UCL</h2>
+
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, repellendus?</p>
+
+                        <a href = "#">Citeste mai mult <span>>></span></a>
+                    </div>
+                    <img src = "images/main-right-4.jpg">
+                </article>
+             </section>
+            </main>
+        </div>
+
